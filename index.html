@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#080e1b">
+  <meta name="description" content="ALMO3GTHA - نظام أكاديمي للاستعلام عن التقديرات والمعدل التراكمي والنسبة المئوية.">
+  <title>ALMO3GTHA | النظام الأكاديمي</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <div class="background-glow glow-one"></div>
+  <div class="background-glow glow-two"></div>
+
+  <aside class="sidebar">
+    <div class="brand">
+      <div class="brand-icon">A</div>
+      <div><h2>ALMO3GTHA<span>.</span></h2><small>النظام الأكاديمي</small></div>
+    </div>
+    <div class="nav-label">القائمة الرئيسية</div>
+    <a class="nav-item active" href="#overview"><span>◈</span> الرئيسية</a>
+    <a class="nav-item" href="#search-tools"><span>⌕</span> البحث عن التقدير</a>
+    <a class="nav-item" href="#students"><span>♙</span> سجل الطلاب</a>
+    <a class="nav-item" href="#mercy"><span>✧</span> لجنة الرأفة</a>
+    <div class="sidebar-bottom">
+      <div class="system-status"><span class="status-dot"></span>النظام يعمل</div>
+      <small>الإصدار 2.0.0</small>
+    </div>
+  </aside>
+
+  <main class="main-content" id="overview">
+    <header class="topbar">
+      <div>
+        <span class="eyebrow">النظام الأكاديمي / ٢٠٢٦</span>
+        <h1>مرحبًا بك مع <span>ALMO3GTHA</span></h1>
+        <p>استعلم عن تقديرك ومعدلك التراكمي ونسبتك المئوية بسهولة.</p>
+      </div>
+      <div class="profile">
+        <div class="profile-icon">A</div>
+        <div><strong>النظام الأكاديمي</strong><small>بوابة الاستعلام</small></div>
+      </div>
+    </header>
+
+    <section class="welcome-panel">
+      <div>
+        <span class="gold-label">✦ رحلتك الأكاديمية تبدأ من هنا</span>
+        <h2>اعرف نتيجتك بثقة ووضوح.</h2>
+        <p>استخدم أدوات البحث المستقلة لمعرفة التقدير أو المعدل التراكمي أو النسبة المئوية وفق جدول التقديرات المعتمد.</p>
+        <a href="#search-tools" class="gold-button">ابدأ الاستعلام ↙</a>
+      </div>
+      <div class="welcome-symbol"><div class="symbol-ring"><span>✧</span></div><small>دقة أكاديمية<br>ووضوح في النتائج</small></div>
+    </section>
+
+    <section class="stats-grid">
+      <div class="stat-card"><div class="stat-top"><span>إجمالي الطلاب</span><span class="stat-icon">♙</span></div><h2 id="totalStudents">0</h2><small>عدد الطلاب المسجلين في النموذج</small></div>
+      <div class="stat-card"><div class="stat-top"><span>ناجحون</span><span class="stat-icon green">✓</span></div><h2 id="successfulStudents">0</h2><small>طلاب اجتازوا الحد الأدنى</small></div>
+      <div class="stat-card"><div class="stat-top"><span>يحتاجون للمراجعة</span><span class="stat-icon red">!</span></div><h2 id="reviewStudents">0</h2><small>طلاب يحتاجون إلى مراجعة</small></div>
+      <div class="stat-card"><div class="stat-top"><span>متوسط الدرجات</span><span class="stat-icon">◈</span></div><h2 id="classAverage">0</h2><small>متوسط درجات الطلاب بالنموذج</small></div>
+    </section>
+
+    <section class="section search-section" id="search-tools">
+      <div class="section-heading">
+        <div><span class="eyebrow">أدوات الاستعلام</span><h2>ابحث عن تقديرك</h2><p>كل أداة مستقلة، وستظهر النتيجة أسفل خانة البحث الخاصة بها.</p></div>
+      </div>
+      <div class="search-grid">
+        <article class="search-card">
+          <div class="search-card-head"><span class="search-number">01</span><div><h3>البحث باستخدام GPA</h3><p>أدخل قيمة المعدل التراكمي.</p></div></div>
+          <form id="gpaForm" class="search-form">
+            <label for="gpaInput">المعدل التراكمي (GPA)</label>
+            <input id="gpaInput" type="number" min="0" max="4" step="0.01" placeholder="مثال: 3.70" required>
+            <button class="gold-button search-button" type="submit">ابحث باستخدام GPA</button>
+          </form>
+          <div class="answer-box" id="gpaAnswer" aria-live="polite"><div class="answer-placeholder">ستظهر هنا نتيجة البحث عن التقدير والنسبة المئوية.</div></div>
+        </article>
+
+        <article class="search-card">
+          <div class="search-card-head"><span class="search-number">02</span><div><h3>البحث باستخدام التقدير</h3><p>اختر التقدير من القائمة.</p></div></div>
+          <form id="gradeForm" class="search-form">
+            <label for="gradeInput">التقدير</label>
+            <select id="gradeInput" required>
+              <option value="">اختر التقدير</option>
+              <option value="A+">امتياز مرتفع (A+)</option>
+              <option value="A">امتياز (A)</option>
+              <option value="B+">جيد جدًا مرتفع (B+)</option>
+              <option value="B">جيد جدًا (B)</option>
+              <option value="C+">جيد مرتفع (C+)</option>
+              <option value="C">جيد (C)</option>
+              <option value="D+">مقبول مرتفع (D+)</option>
+              <option value="D">مقبول (D)</option>
+              <option value="F">راسب (F)</option>
+            </select>
+            <button class="gold-button search-button" type="submit">ابحث باستخدام التقدير</button>
+          </form>
+          <div class="answer-box" id="gradeAnswer" aria-live="polite"><div class="answer-placeholder">ستظهر هنا نتيجة البحث عن المعدل التراكمي والنسبة المئوية.</div></div>
+        </article>
+
+        <article class="search-card">
+          <div class="search-card-head"><span class="search-number">03</span><div><h3>البحث باستخدام النسبة المئوية</h3><p>أدخل نسبتك المئوية.</p></div></div>
+          <form id="percentForm" class="search-form">
+            <label for="percentInput">النسبة المئوية (%)</label>
+            <input id="percentInput" type="number" min="0" max="100" step="0.01" placeholder="مثال: 92.50" required>
+            <button class="gold-button search-button" type="submit">ابحث باستخدام النسبة</button>
+          </form>
+          <div class="answer-box" id="percentAnswer" aria-live="polite"><div class="answer-placeholder">ستظهر هنا نتيجة البحث عن المعدل التراكمي والتقدير.</div></div>
+        </article>
+      </div>
+      <p class="grading-note">ملاحظة: النسب المعروضة هي نطاقات التقدير وفق جدول التحويل المعتمد داخل النظام، وليست نسبة دقيقة مستنتجة من قيمة GPA وحدها.</p>
+    </section>
+
+    <section class="section" id="students">
+      <div class="section-heading">
+        <div><span class="eyebrow">السجلات الأكاديمية</span><h2>أداء الطلاب</h2><p>بيانات تجريبية لعرض طريقة عمل لوحة المتابعة.</p></div>
+        <span class="record-count" id="recordCount">٤ سجلات</span>
+      </div>
+      <div class="table-container">
+        <table>
+          <thead><tr><th>اسم الطالب</th><th>الرقم</th><th>المتوسط</th><th>التقدير</th><th>الحضور</th><th>النتيجة</th></tr></thead>
+          <tbody id="studentsTable"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="mercy-section" id="mercy">
+      <div class="mercy-header">
+        <div><span class="eyebrow">الدعم الأكاديمي</span><h2>لجنة <span>الرأفة</span></h2><p>عرض الطلاب الذين قد تنطبق عليهم قواعد الرأفة وفق بيانات النموذج.</p></div>
+        <div class="mercy-symbol">✧</div>
+      </div>
+      <div class="mercy-content">
+        <div class="mercy-info"><small>عدد الطلاب المستفيدين</small><h2 id="mercyCount">0</h2><p>طلاب متوسطهم من ٤٠ إلى أقل من ٥٠.</p></div>
+        <div class="mercy-info"><small>المتوسط بعد إضافة الرأفة</small><h2 id="mercyAverage">0.00</h2><p>بعد إضافة ٥ درجات افتراضية لأغراض العرض.</p></div>
+      </div>
+      <div id="mercyStudents" class="mercy-list"></div>
+    </section>
+
+    <footer><span>ALMO3GTHA — النظام الأكاديمي</span><span>صُمم للتميز © ٢٠٢٦</span></footer>
+  </main>
+</body>
+</html>
